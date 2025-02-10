@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Conexión del CSS -->
+</head>
+<body>
+    <!-- Barra despegable a la derecha con mini pestaña -->
+    <div class="menu-bar">
+        <div class="theme-toggle">
+            <label for="theme">Tema: </label>
+            <button id="theme">Cambiar Tema</button>
+        </div>
+        <div class="language-selector">
+            <label for="language">Idioma: </label>
+            <select id="language">
+                <option value="es" selected>Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="de">Alemán</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Mini pestaña para activar la barra -->
+    <div class="menu-tab">
+        <button id="menu-toggle">≡</button>
+    </div>
+
+    <h1 id="greeting">Hola Mundo</h1>
+
+    <script>
+        // Traducciones
+        const translations = {
+            es: "Hola Mundo",
+            en: "Hello World",
+            fr: "Bonjour le Monde",
+            de: "Hallo Welt"
+        };
+
+        // Función para actualizar el texto del saludo
+        function updateGreeting(language) {
+            const greetingElement = document.getElementById('greeting');
+            greetingElement.textContent = translations[language];
+        }
+
+        // Inicializar el idioma y el tema
+        function init() {
+            const languageSelector = document.getElementById('language');
+            languageSelector.addEventListener('change', function() {
+                updateGreeting(languageSelector.value);
+            });
+
+            // Establecer el idioma por defecto
+            updateGreeting(languageSelector.value);
+
+            setThemeBasedOnTime();
+        }
+
+        // Función para establecer el tema según la hora
+        function setThemeBasedOnTime() {
+            let now = new Date();
+            let options = { timeZone: "America/Mexico_City", hour12: false };
+            let hour = new Intl.DateTimeFormat("es-MX", { ...options, hour: "2-digit" }).format(now);
+            
+            if (parseInt(hour) >= 19) {
+                document.body.classList.add("dark-mode");
+            }
+        }
+
+        // Función para alternar el tema
+        document.getElementById('theme').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Función para alternar la visibilidad de la barra
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menuBar = document.querySelector('.menu-bar');
+            menuBar.classList.toggle('visible');
+        });
+
+        // Iniciar la página
+        init();
+    </script>
+</body>
+</html>
