@@ -1,9 +1,11 @@
+/* Estilos base del body */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding-top: 60px; /* Espacio para la navbar fija */
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -12,30 +14,87 @@ body {
     flex-direction: column;
 }
 
-h1 {
-    color: inherit;
-    font-size: 3rem;
-    margin-bottom: 20px;
+/* Estilos de la navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+
+.search-container input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: auto;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
 }
 
 /* Barra despegable a la derecha */
 .menu-bar {
     position: fixed;
-    top: 10px;
-    right: -250px; /* Aumentado para dar más espacio */
+    top: 70px; /* Ajustado para estar debajo de la navbar */
+    right: -250px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;  /* Aumentado el padding */
+    padding: 20px;
     background-color: #fff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     transition: transform 0.3s;
-    width: 220px;  /* Ancho fijo para el menú */
+    width: 220px;
 }
 
 .menu-bar.visible {
-    transform: translateX(-230px); /* Ajustado para el nuevo ancho */
+    transform: translateX(-230px);
 }
 
 /* Estilo para los botones y selectores */
@@ -43,12 +102,12 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%; /* Asegura que tome todo el ancho disponible */
+    width: 100%;
 }
 
 button, select {
     font-size: 1rem;
-    padding: 8px 12px; /* Aumentado el padding */
+    padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -57,9 +116,9 @@ button, select {
 button {
     background-color: #007bff;
     color: white;
-    white-space: nowrap; /* Evita que el texto se rompa */
-    width: auto; /* Permite que el botón tome el ancho necesario */
-    min-width: 120px; /* Ancho mínimo para el botón */
+    white-space: nowrap;
+    width: auto;
+    min-width: 120px;
 }
 
 button:hover {
@@ -68,13 +127,13 @@ button:hover {
 
 select {
     background-color: #f4f4f4;
-    width: 120px; /* Ancho fijo para el select */
+    width: 120px;
 }
 
 /* Mini pestaña para activar la barra */
 .menu-tab {
     position: fixed;
-    top: 10px;
+    top: 70px; /* Ajustado para estar debajo de la navbar */
     right: 0;
     z-index: 100;
 }
@@ -87,11 +146,7 @@ select {
     padding: 10px;
     border-radius: 5px 0 0 5px;
     cursor: pointer;
-    min-width: auto; /* Sobrescribe el min-width para este botón específico */
-}
-
-#menu-toggle:hover {
-    background-color: #0056b3;
+    min-width: auto;
 }
 
 /* Tema oscuro */
@@ -100,13 +155,41 @@ select {
     color: #f4f4f4;
 }
 
-/* Ajuste para el menú en modo oscuro */
 .dark-mode .menu-bar {
     background-color: #333;
     color: #f4f4f4;
 }
 
+.dark-mode .navbar {
+    background-color: #222;
+}
+
 .dark-mode select {
     background-color: #444;
     color: #f4f4f4;
+}
+
+.dark-mode .search-container input {
+    background-color: #444;
+    color: #f4f4f4;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-container input {
+        flex-grow: 1;
+    }
 }
