@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión del CSS -->
+    <style>
+        /* Estilos para el reloj */
+        .clock-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
+
     <!-- Barra despegable a la derecha con mini pestaña -->
     <div class="menu-bar">
         <div class="theme-toggle">
@@ -44,6 +60,9 @@
 
     <h1 id="greeting">Hola Mundo</h1>
 
+    <!-- Reloj en tiempo real -->
+    <div class="clock-container" id="clock"></div>
+
     <script>
         // Traducciones
         const translations = {
@@ -55,8 +74,7 @@
 
         // Función para actualizar el texto del saludo
         function updateGreeting(language) {
-            const greetingElement = document.getElementById('greeting');
-            greetingElement.textContent = translations[language];
+            document.getElementById('greeting').textContent = translations[language];
         }
 
         // Inicializar el idioma y el tema
@@ -66,10 +84,10 @@
                 updateGreeting(languageSelector.value);
             });
 
-            // Establecer el idioma por defecto
             updateGreeting(languageSelector.value);
-
             setThemeBasedOnTime();
+            updateClock(); // Iniciar el reloj
+            setInterval(updateClock, 1000); // Actualizar cada segundo
         }
 
         // Función para establecer el tema según la hora
@@ -83,6 +101,13 @@
             }
         }
 
+        // Función para actualizar el reloj
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+            document.getElementById("clock").textContent = timeString;
+        }
+
         // Función para alternar el tema
         document.getElementById('theme').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
@@ -90,8 +115,7 @@
 
         // Función para alternar la visibilidad de la barra
         document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menuBar = document.querySelector('.menu-bar');
-            menuBar.classList.toggle('visible');
+            document.querySelector('.menu-bar').classList.toggle('visible');
         });
 
         // Iniciar la página
