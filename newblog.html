@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Configuración del documento -->
-    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste para dispositivos móviles -->
-    <title>Document</title> <!-- Título de la página -->
-    <link rel="icon" type="image/x-icon" href="Iconos/group_2684798.ico"> <!-- Icono de la pestaña del navegador -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icson" type="image/x-icon" href="Iconos/group_2684798.ico">
+    <link rel="stylesheet" href="STYLES/blogstyles.css">
     <title>Efra's Blog</title>
 </head>
 <body>
-    <!-- Encabezado principal -->
+    <div>
+        <h1>ENCABEZADO</h1>
+    </div>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+
     <header>
-        <h1>Efra's Blog</h1> <!-- Título del blog -->
+        <h1>Efra's Blog</h1>
     </header>
     
-    <!-- Barra de navegación -->
     <nav>
         <ul>
-            <li>Main</li> <!-- Opción del menú principal -->
-            <li>Help</li> <!-- Opción de ayuda -->
-            <li>Contact us</li> <!-- Opción de contacto -->
+            <li><a href="#">Main</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact us</a></li>
         </ul>
+
     </nav>
     
-    <!-- Sección de artículos -->
     <section>
-        <!-- Primer artículo -->
         <article>
-            <hgroup>
-                <h1>Post number 1</h1> <!-- Título del post -->
-                <h2>Subtitle to my post</h2> <!-- Subtítulo del post -->
-            </hgroup>
-            <time datetime="12/02/2025">Post date 12/02/2025</time> <!-- Fecha del post -->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rem et totam commodi ea velit...</p> <!-- Contenido del artículo -->
-            <img src="Iconos/group_2684798.ico" width="100" height="100">
+            <h1>Post number 1</h1>
+            <h2>Subtitle to my post</h2>
+            <time datetime="2025-02-12">Post date 12/02/2025</time>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rem et totam commodi ea velit...</p>
+            <img src="Iconos/group_2684798.ico" width="100" height="100" alt="Post icon">
         </article>
         
-        <!-- Segundo artículo -->
         <article>
-            <hgroup>
-                <h1>Post number 2</h1> <!-- Título del post -->
-                <h2>Subtitle to my post</h2> <!-- Subtítulo del post -->
-            </hgroup>
-            <time datetime="12/02/2025">Post date 12/02/2025</time> <!-- Fecha del post -->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ad aspernatur illo fugiat pariatur...</p> <!-- Contenido del artículo -->
+            <h1>Post number 2</h1>
+            <h2>Subtitle to my post</h2>
+            <time datetime="2025-02-12">Post date 12/02/2025</time>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ad aspernatur illo fugiat pariatur...</p>
         </article>
     </section>
     
-    <!-- Menú lateral -->
     <aside>
-        <blockquote>
-            <p>Archive</p> <!-- Sección de archivos -->
-        </blockquote>
-        <blockquote>
-            <p>Post number</p> <!-- Sección de número de post -->
-        </blockquote>
+        <div class="sidebar-section">
+            <p>Archive</p>
+        </div>
+        <div class="sidebar-section">
+            <p>Post number</p>
+        </div>
     </aside>
     
-    <!-- Pie de página -->
     <footer>
-        <p>&copy; All rights reserved. <a href="mailto:efragonzalezmartin@gmail.com">Efra Gonzalez</a></p> <!-- Derechos de autor -->
+        <p>&copy; All rights reserved. <a href="mailto:efragonzalezmartin@gmail.com">Efra Gonzalez</a></p>
     </footer>
+
+    <script src="JAVASCRIP/blog.js"></script>
 </body>
 </html>
